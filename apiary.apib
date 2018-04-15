@@ -1,0 +1,82 @@
+FORMAT: 1A
+HOST: https://votd.ansidev.xyz/api/v1/
+
+# Bible verse of the day
+
+Retrive new bible verse everyday
+
+## Verse of the day [/votd?version={version}]
+
+### Retrieve Bible verse of the day [GET]
+
++ Parameters
+    + version (optional, string) ... Bible version code
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+        {
+            date: "2018-04-15",
+            verse: "“How great you are, Sovereign LORD! There is no one like you, and there is no God but you, as we have heard with our own ears.",
+            reference: {
+                text: "2 Samuel 7:22",
+                book_code: "2SA",
+                chapter: 7,
+                verse: 22
+            },
+            version: {
+                id: 111,
+                code: "NIV"
+            }
+        }
+
+## Bible Version [/versions]
+
+### List all Bible versions [GET /versions?lang={lang}]
+
+Retrieve supported Bible versions
+
++ Parameters
+    + lang (required, string) ... Filter Bible version by language
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    id: 193,
+                    code: "VB1925"
+                },
+                {
+                    id: 151,
+                    code: "RVV11",
+                }
+            ]
+
+### Get Bible version infomation [GET /versions/{id_or_code}]
+
+Retrieve supported Bible versions
+
++ Parameters
+    + id_or_code (required, string|number) ... ID or code of Bible version
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Body
+
+            [
+                {
+                    id: 193,
+                    code: "VB1925"
+                },
+                {
+                    id: 151,
+                    code: "RVV11",
+                }
+            ]
